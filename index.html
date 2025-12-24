@@ -126,26 +126,26 @@
     <!-- Language Selection -->
     <nav>
         <div class="nav-left">
-            <h4>Idioma:</h4>
+            <h4 data-i18n="lang_label">Idioma:</h4>
             <ul>
-               <li><a href="#" onclick="switchLanguage('spanish')" id="lang-es">Español</a></li>
-                <li><a href="#" onclick="switchLanguage('galician')" id="lang-gl">Galego</a></li>
-                <li><a href="#" onclick="switchLanguage('english')" id="lang-en">English</a></li>
+               <li><a href="#" onclick="switchLanguage('es')" id="lang-es">Español</a></li>
+                <li><a href="#" onclick="switchLanguage('gl')" id="lang-gl">Galego</a></li>
+                <li><a href="#" onclick="switchLanguage('en')" id="lang-en">English</a></li>
             </ul>
         </div>
-        <button onclick="toggleDarkMode()" id="dark-mode-toggle">Dark Mode</button>
+        <button onclick="toggleDarkMode()" id="dark-mode-toggle" data-i18n="dark_mode">Dark Mode</button>
     </nav>
 
     <hr>
 
-    <!-- English version -->
-    <div id="english" class="language-content" style="display: none;">
-        <h1>Martín González Dios</h1>
+    <!-- Main content -->
+    <div id="content">
+        <h1 data-i18n="name">Martín González Dios</h1>
         
         <section>
             <img src="./imgs/martindios.jpg" alt="Photo of Martín González Dios" width="200" height="200">
             <br>
-            <em>Computer engineer focused on cybersecurity.</em>
+            <em data-i18n="subtitle">Ingeniero informático orientado a la ciberseguridad.</em>
 
             <div class="contact-section">
                 <a href="https://www.linkedin.com/in/mart%C3%ADn-gonz%C3%A1lez-dios/" target="_blank" aria-label="LinkedIn">
@@ -161,22 +161,21 @@
         </section>
 
         <section>
-            <h2>About me</h2>
+            <h2 data-i18n="about_title">Acerca de mí</h2>
 
-            <p>Computer Engineering student with a focus on cybersecurity. I actively participate in CTFs and hackathons, with experience in penetration testing and basic exploit development. My training is continuous, combining university studies with self-directed learning. At university, I have acquired solid knowledge in operating systems, networks, databases, APIs, and other essential subjects that complete the education of a computer engineer, providing me with a strong foundation. In parallel, through self-study, I enhance my knowledge in cybersecurity and network administration using platforms such as Hack The Box and through various technical certifications.</p>
-
-            <p>I am passionate about open source; most of the tools I use daily are FOSS. I primarily work with Arch Linux in my development environment and use Debian for servers. My preferred code editor is Neovim, it's the one I use most and the one I feel most comfortable with.</p>
+            <p data-i18n="about_p1"></p>
+            <p data-i18n="about_p2"></p>
             
-            <h3>Education</h3>
+            <h3 data-i18n="education_title">Educación</h3>
             <ul>
-                <li><strong>High School Diploma in Science</strong> - IES Frei Martín Sarmiento and IES Xunqueira I (2021-2023)</li>
-                <li><strong>Bachelor's Degree in Computer Engineering</strong> - University of Santiago de Compostela (2023-present)</li>
+                <li><strong data-i18n="education_highschool"></strong> - <span data-i18n="education_highschool_place"></span></li>
+                <li><strong data-i18n="education_degree"></strong> - <span data-i18n="education_degree_place"></span></li>
             </ul>
             
-            <h3>Certifications</h3>
+            <h3 data-i18n="certifications_title">Certificaciones</h3>
             <ul>
                 <li>
-                    <strong>LPIC-1</strong> (11/2025): since I began my career, Linux has always been fundamental to me; it is the de facto operating system I have been using for years. This was one of the reasons why I decided to learn it in depth, which led me to prepare for and obtain the Linux Professional Institute Certification 1. Thanks to this certification, I delved deeper into technologies such as systemd, the use and management of Red Hat distributions, Linux server hardening, and many other areas.
+                    <strong>LPIC-1</strong> (11/2025): <span data-i18n="cert_lpic1_desc"></span>
 
                     <br>
 
@@ -187,142 +186,7 @@
                 </li>
                 <br>
                 <li>
-                    <strong>Cisco Certified Support Technician Cybersecurity (CCST Cybersecurity)</strong> (10/2025): as a result of completing this certification, I gained a practical and theoretical overview of cybersecurity: threat identification and assessment, incident response workflows, and network security principles. As my first certification, it helped me consolidate a foundation in the field and provided my first exposure to services, devices, and configurations within the Cisco ecosystem.
-
-                    <br>
-
-                    <a href="https://www.credly.com/badges/ce3382d3-ba95-4f6b-9505-33fdec75fb74" target="_blank">
-                        <img src="./imgs/ccst.png" alt="CCST Cybersecurity Badge" width="100" height="100">
-                    </a>
-                </li>
-                <br>
-                <li>
-                    <strong>Advanced cybersecurity in operational technology environments</strong> (09/2025): I have always been interested in the intersection between the development world and the industrial world, and this course allowed me to learn how to proceed when managing a current industrial environment, with everything that entails.
-                </li>
-            </ul>
-        </section>
-
-        <section>
-            <h2>Projects/Achievements</h2>
-
-            <div>
-                <h3>HackUDC 2025 Winners</h3>
-                <p>
-                    As part of a three-person team, we developed a Chrome extension using JavaScript for the InditexTech challenge and won the prize. During the hackathon I strengthened my teamwork skills through intensive collaboration, as well as my leadership and improvisation abilities.
-                </p>
-
-                <figure>
-                    <a href="https://github.com/martindios/Pickture" target="_blank" rel="noopener noreferrer">
-                        <img
-                        src="./imgs/pickture.png"
-                        alt="Screenshot of the Pickture extension in action, showing the search for clothing items online."
-                        width="479" height="288">
-                    </a>
-                    <figcaption id="cap-pickture">
-                        Screenshot of the <strong>Pickture</strong> extension. 
-                        <a href="https://github.com/martindios/Pickture" target="_blank" rel="noopener noreferrer">See project in GitHub</a>.
-                    </figcaption>
-                </figure>
-            
-            </div>
-
-            <div>
-                <h3>EIJE 2025 Finalists (International Meeting of Young Entrepreneurs)</h3>
-
-                <p>
-                    As part of a team during a one-week program, we developed an MVP for an Android app in Kotlin for reviews of sustainable local businesses, and prepared a pitch and a business plan. The experience was highly rewarding and helped me develop several soft skills, including public speaking and effective time management.
-                </p>
-
-                <figure>
-                    <a href="https://github.com/martindios/GreenDots" target="_blank" rel="noopener noreferrer">
-                    <img
-                        src="./imgs/greendots.jpg"
-                        alt="Screenshots of the GreenDots application in operation, showing the interactive map and reviews of sustainable venues."
-                        width="480" height="270"
-                        aria-describedby="cap-greendots">
-                    </a>
-                    <figcaption id="cap-greendots">
-                    Screenshots of the application <strong>GreenDots</strong>.
-                    <a href="https://github.com/martindios/GreenDots" target="_blank" rel="noopener noreferrer">See project in GitHub</a>.
-                    </figcaption>
-                </figure>
-            </div>
-
-            <div>
-                <h3>Look for the Capy</h3>
-                <p>
-                    Look for the Capy is a game developed in C++ that uses OpenGL 3.3 to create procedural 3D terrain using Perlin noise. The goal of the game is to find a capybara across the terrain as many times as possible. Keep in mind that if you take too long to find it, you will lose the game.
-                </p>
-
-                <figure>
-                    <a href="https://github.com/martindios/LookForTheCapy" target="_blank" rel="noopener noreferrer">
-                        <img
-                            src="./imgs/look-for-the-capy.png"
-                            alt="Screenshot of the Look for the Capy game, showing the procedural 3D terrain and the capybara that must be found."
-                            width="560" height="265"
-                            aria-describedby="cap-capy">
-                    </a>
-                    <figcaption id="cap-capy">
-                        Screenshot of the game <strong>Look for the Capy</strong>.
-                        <a href="https://github.com/martindios/LookForTheCapy" target="_blank" rel="noopener noreferrer">See project in GitHub</a>.
-                    </figcaption>
-                </figure>
-
-                <p><strong>Technologies:</strong> C++, OpenGL 3.3 and GLSL.</p>
-            </div>
-        </section>
-    </div>
-
-    <!-- Versión española -->
-    <div id="spanish" class="language-content">
-        <h1>Martín González Dios</h1>
-        
-        <section>
-            <img src="./imgs/martindios.jpg" alt="Foto de martindios" width="200" height="200">
-            <br>
-            <em>Ingeniero informático orientado a la ciberseguridad.</em>
-
-            <div class="contact-section">
-                <a href="https://www.linkedin.com/in/mart%C3%ADn-gonz%C3%A1lez-dios/" target="_blank" aria-label="LinkedIn">
-                    <img class="svg-img" src="./imgs/linkedin.svg" alt="LinkedIn">
-                </a>
-                <a href="https://github.com/martindios" target="_blank" aria-label="GitHub">
-                    <img class="svg-img" src="./imgs/github.svg" alt="GitHub">
-                </a>
-                <a href="mailto:gonzalezdiosmartin@gmail.com" target="_blank" aria-label="Email">
-                    <img class="svg-img" src="./imgs/email.svg" alt="Email">
-                </a>
-            </div>
-        </section>
-
-        <section>
-            <h2>Acerca de mí</h2>
-
-            <p>Estudiante de Ingeniería Informática, orientado al campo de la ciberseguridad. Participo activamente en CTFs y hackathons, con experiencia en pruebas de intrusión y desarrollo de exploits básicos. Mi formación es continua, combinando los estudios universitarios con el aprendizaje autodidacta. En la universidad he adquirido conocimientos sólidos en sistemas operativos, redes, bases de datos, APIs y otras materias esenciales que completan la formación de un ingeniero informático. Esto me ha proporcionado una base sólida. Paralelamente, de forma autodidacta profundizo en ciberseguridad y administración de redes mediante plataformas como Hack The Box o a través de diversas certificaciones técnicas.</p>
-            
-            <p>Soy un apasionado del open source; la mayoría de las herramientas que utilizo a diario son FOSS. Trabajo principalmente con Arch Linux en mi entorno de desarrollo y empleo Debian para servidores. Mi editor de código predilecto es Neovim, es el que más uso y en el que más cómodo me siento.</p>
-            
-            <h3>Educación</h3>
-            <ul>
-                <li><strong>Bachillerato de Ciencias</strong> - IES Frei Martín Sarmiento e IES Xunqueira I (2021-2023)</li>
-                <li><strong>Grado en Ingeniería Informática</strong> - Universidad de Santiago de Compostela (2023-presente)</li>
-            </ul>
-            
-            <h3>Certificaciones</h3>
-            <ul>
-                <li>
-                    <strong>LPIC-1</strong> (11/2025): desde que comencé mi carrera, Linux ha sido siempre fundamental para mí; es el sistema operativo de facto que utilizo desde hace años. Esta fue una de las razones por las que decidí aprenderlo en profundidad, lo que me llevó a preparar y obtener el Linux Professional Institute Certification 1. Gracias a esta certificación, ahondé en tecnologías como systemd, el uso y gestión de distribuciones Red Hat, el hardening de servidores Linux y muchas otras áreas.
-
-                    <br>
-
-                    <a href="https://www.credly.com/badges/97b91ea6-488f-4d3f-b0ed-45b23bf225e0" target="_blank">
-                        <img src="./imgs/lpic1.jpg" alt="LPIC-1 badge" width="100" height="100">
-                    </a>
-
-                </li>
-                <br>
-                <li>
-                    <strong>Cisco Certified Support Technician Cybersecurity (CCST Cybersecurity)</strong> (10/2025): como resultado de completar esta certificación, adquirí una visión práctica y teórica en ciberseguridad: identificación y evaluación de amenazas, flujos de trabajo de respuesta a incidentes y principios de seguridad de redes. Al ser mi primera certificación, me ayudó a consolidar una base en el campo y me proporcionó mi primer acercamiento a los servicios, dispositivos y configuraciones dentro del ecosistema de Cisco.
+                    <strong>Cisco Certified Support Technician Cybersecurity (CCST Cybersecurity)</strong> (10/2025): <span data-i18n="cert_ccst_desc"></span>
 
                     <br>
 
@@ -333,218 +197,73 @@
                 </li>
                 <br>
                 <li>
-                    <strong>Ciberseguridad avanzada en entornos de las tecnologías de la operación</strong> (09/2025): siempre he estado interesado en la intersección entre el mundo del desarrollo y el mundo industrial, y este curso me permitió aprender cómo hay que proceder a la hora de manejar un entorno industrial actual, con todo lo que conlleva.
+                    <strong data-i18n="cert_ot_title"></strong> (09/2025): <span data-i18n="cert_ot_desc"></span>
                 </li>
             </ul>
         </section>
 
         <section>
-            <h2>Proyectos/Logros</h2>
+            <h2 data-i18n="projects_title">Proyectos/Logros</h2>
             
             <div>
-                <h3>Ganadores HackUDC 2025</h3>
-                <p>
-                    Mediante un grupo de 3 personas desarrollamos una extensión de Chrome con JavaScript para el reto de InditexTech, quedando ganadores de este reto. En este hackathon reforcé mis habilidades de trabajo en equipo de forma intensiva, así como de liderazgo y de improvisación.
-                </p>
+                <h3 data-i18n="hackudc_title">Ganadores HackUDC 2025</h3>
+                <p data-i18n="hackudc_desc"></p>
 
                 <figure>
                     <a href="https://github.com/martindios/Pickture" target="_blank" rel="noopener noreferrer">
                         <img
                         src="./imgs/pickture.png"
-                        alt="Captura de pantalla de la extensión Chrome 'Pickture' mostrando la búsqueda de prendas y resultados en varias tiendas online."
+                        alt="Pickture extension screenshot"
                         width="479" height="288">
                     </a>
-                    <figcaption id="cap-pickture">
-                        Captura de la extensión <strong>Pickture</strong>. 
-                        <a href="https://github.com/martindios/Pickture" target="_blank" rel="noopener noreferrer">Ver proyecto en GitHub</a>.
+                    <figcaption>
+                        <span data-i18n="pickture_caption"></span> <strong>Pickture</strong>. 
+                        <a href="https://github.com/martindios/Pickture" target="_blank" rel="noopener noreferrer" data-i18n="github_link"></a>.
                     </figcaption>
                 </figure>
             
             </div>
 
             <div>
-                <h3>Finalistas EIJE 2025 (Encuentro Internacional de Jóvenes Emprendedores)</h3>
+                <h3 data-i18n="eije_title">Finalistas EIJE 2025</h3>
 
-                <p>
-                    Durante una semana realizamos un MVP de una aplicación Android con Kotlin para reseñas de locales sostenibles, creando un pitch y un plan de negocio. Esta experiencia fue muy enriquecedora, ya que desarrollé numerosas habilidades blandas, como la oratoria o la correcta gestión del tiempo.
-                </p>
+                <p data-i18n="eije_desc"></p>
 
                 <figure>
                     <a href="https://github.com/martindios/GreenDots" target="_blank" rel="noopener noreferrer">
                     <img
                         src="./imgs/greendots.jpg"
-                        alt="Capturas de pantalla de la app Android 'GreenDots' mostrando el mapa interactivo y reseñas de locales sostenibles."
-                        width="480" height="270"
-                        aria-describedby="cap-greendots">
+                        alt="GreenDots app screenshots"
+                        width="480" height="270">
                     </a>
-                    <figcaption id="cap-greendots">
-                    Capturas de la aplicación <strong>GreenDots</strong> en funcionamiento.
-                    <a href="https://github.com/martindios/GreenDots" target="_blank" rel="noopener noreferrer">Ver proyecto en GitHub</a>.
+                    <figcaption>
+                        <span data-i18n="greendots_caption"></span> <strong>GreenDots</strong> <span data-i18n="greendots_running"></span>.
+                        <a href="https://github.com/martindios/GreenDots" target="_blank" rel="noopener noreferrer" data-i18n="github_link"></a>.
                     </figcaption>
                 </figure>
             </div>
 
             <div>
-                <h3>Look for the Capy</h3>
+                <h3 data-i18n="capy_title">Look for the Capy</h3>
 
-                <p>
-                    Look for the Capy es un juego desarrollado en C++ que utiliza OpenGL 3.3 para crear un terreno 3D procedimental usando ruido de Perlin. El objetivo del juego es encontrar una capibara a lo largo del terreno todas las veces que sea posible. Ten en cuenta que si tardas demasiado en encontrarla, perderás el juego.
-                </p>
+                <p data-i18n="capy_desc"></p>
 
                 <figure>
                     <a href="https://github.com/martindios/LookForTheCapy" target="_blank" rel="noopener noreferrer">
                         <img
                             src="./imgs/look-for-the-capy.png"
-                            alt="Captura de pantalla del juego Look for the Capy, mostrando el terreno 3D procedimental y la capibara que debe ser encontrada."
-                            width="480" height="270"
-                            aria-describedby="cap-lookforthecapy">
+                            alt="Look for the Capy game screenshot"
+                            width="480" height="270">
                     </a>
-                    <figcaption id="cap-lookforthecapy">
-                        Captura del juego <strong>Look for the Capy</strong> en funcionamiento.
-                        <a href="https://github.com/martindios/LookForTheCapy" target="_blank" rel="noopener noreferrer">Ver proyecto en GitHub</a>.
+                    <figcaption>
+                        <span data-i18n="capy_caption"></span> <strong>Look for the Capy</strong>.
+                        <a href="https://github.com/martindios/LookForTheCapy" target="_blank" rel="noopener noreferrer" data-i18n="github_link"></a>.
                     </figcaption>
                 </figure>
 
-                <p><strong>Tecnologías:</strong> C++, OpenGL 3.3 y GLSL.</p>
-            </div>
-
-        </section>
-    </div>
-
-    <!-- Versión galega -->
-    <div id="galician" class="language-content" style="display: none;">
-        <h1>Martín González Dios</h1>
-        
-        <section>
-            <img src="./imgs/martindios.jpg" alt="Foto de martindios" width="200" height="200">
-            <br>
-            <em>Enxeñeiro informático orientado á ciberseguridade.</em>
-
-            <div class="contact-section">
-                <a href="https://www.linkedin.com/in/mart%C3%ADn-gonz%C3%A1lez-dios/" target="_blank" aria-label="LinkedIn">
-                    <img class="svg-img" src="./imgs/linkedin.svg" alt="LinkedIn">
-                </a>
-                <a href="https://github.com/martindios" target="_blank" aria-label="GitHub">
-                    <img class="svg-img" src="./imgs/github.svg" alt="GitHub">
-                </a>
-                <a href="mailto:gonzalezdiosmartin@gmail.com" target="_blank" aria-label="Email">
-                    <img class="svg-img" src="./imgs/email.svg" alt="Email">
-                </a>
+                <p><strong data-i18n="technologies"></strong> C++, OpenGL 3.3 y GLSL.</p>
             </div>
         </section>
-
-        <section>
-            <h2>Acerca de min</h2>
-
-            <p>Estudante de Enxeñaría Informática, orientado ao ámbito da ciberseguridade. Participo activamente en CTFs e hackathons, con experiencia en probas de intrusión e desenvolvemento de exploits básicos. A miña formación é continua, combinando os estudos universitarios coa aprendizaxe autodidacta. Na universidade adquirín coñecementos sólidos en sistemas operativos, redes, bases de datos, APIs e outras materias esenciais que completan a formación dun enxeñeiro informático. Isto proporcionoume unha base sólida. En paralelo, de maneira autodidacta afondo na ciberseguridade e na administración de redes mediante plataformas como Hack The Box ou a través de diversas certificacións técnicas.</p>
-
-            <p>Son un apasionado do open source; a maioría das ferramentas que utilizo a diario son FOSS. Traballo principalmente con Arch Linux no meu contorno de desenvolvemento e emprego Debian para servidores. O meu editor de código predilecto é Neovim: é o que máis uso e no que me sinto máis cómodo.</p>
-            
-            <h3>Educación</h3>
-            <ul>
-                <li><strong>Bacharelato de Ciencias</strong> - IES Frei Martín Sarmiento e IES Xunqueira I (2021-2023)</li>
-                <li><strong>Grao en Enxeñería Informática</strong> - Universidade de Santiago de Compostela (2023-presente)</li>
-            </ul>
-            
-            <h3>Certificaciones</h3>
-            <ul>
-                <li>
-                    <strong>LPIC-1</strong> (11/2025): dende que comecei a miña carreira, Linux foi sempre fundamental para min; é o sistema operativo de facto que utilizo dende hai anos. Esta foi unha das razóns polas que decidín aprendelo en profundidade, o que me levou a prepararme e obter a Linux Professional Institute Certification 1. Grazas a esta certificación, afondei en tecnoloxías como systemd, o uso e a xestión de distribucións Red Hat, o hardening de servidores Linux e moitas outras áreas.
-
-                    <br>
-
-                    <a href="https://www.credly.com/badges/97b91ea6-488f-4d3f-b0ed-45b23bf225e0" target="_blank">
-                        <img src="./imgs/lpic1.jpg" alt="LPIC-1 badge" width="100" height="100">
-                    </a>
-
-                </li>
-                <br>
-                <li>
-                    <strong>Cisco Certified Support Technician Cybersecurity (CCST Cybersecurity)</strong> (10/2025): como resultado de completar esta certificación, adquirín unha visión práctica e teórica en ciberseguridade: identificación e avaliación de ameazas, fluxos de traballo de resposta a incidentes e principios de seguridade de redes. Ao ser a miña primeira certificación, axudoume a consolidar unha base no campo e proporcionoume o meu primeiro achegamento aos servizos, dispositivos e configuracións dentro do ecosistema de Cisco.
-
-                    <br>
-
-                    <a href="https://www.credly.com/badges/ce3382d3-ba95-4f6b-9505-33fdec75fb74" target="_blank">
-                        <img src="./imgs/ccst.png" alt="CCST Cybersecurity Badge" width="100" height="100">
-                    </a>
-
-                </li>
-                <br>
-                <li>
-                    <strong>Ciberseguridade avanzada en contornos das tecnoloxías da operación</strong> (09/2025): sempre estiven interesado na intersección entre o mundo do desenvolvemento de software e o mundo industrial, e este curso permitiume aprender como hai que proceder á hora de manexar un contorno industrial actual, con todo o que implica.
-                </li>
-            </ul>
-        </section>
-
-        <section>
-            <h2>Proxectos/Logros</h2>
-            
-            <div>
-                <h3>Gañadores HackUDC 2025</h3>
-                <p>
-                    Mediante un grupo de 3 persoas desenvolvemos unha extensión de Chrome con JavaScript para o reto de InditexTech, quedando gañadores deste reto. Neste hackathon reforcei as miñas habilidades de traballo en equipo de forma intensiva, así como de liderado e de improvisación.
-                </p>
-
-                <figure>
-                    <a href="https://github.com/martindios/Pickture" target="_blank" rel="noopener noreferrer">
-                        <img
-                        src="./imgs/pickture.png"
-                        alt="Captura de pantalla da extensión Pickture en acción, mostrando a busca de prendas de roupa en liña."
-                        width="479" height="288">
-                    </a>
-                    <figcaption id="cap-pickture">
-                        Captura da extensión <strong>Pickture</strong>. 
-                        <a href="https://github.com/martindios/Pickture" target="_blank" rel="noopener noreferrer">Ver proxecto en GitHub</a>.
-                    </figcaption>
-                </figure>
-            </div>
-
-            <div>
-                <h3>Finalistas EIXE 2025 (Encontro Internacional de Xovenes Emprendedores)</h3>
-
-                <p>
-                    Durante unha semana realizamos un MVP dunha aplicación Android con Kotlin para reseñas de locais sostibles, creando un pitch e un plan de negocio. Esta experiencia foi moi enriquecedora, xa que desenvolvín numerosas habilidades brandas, como a oratoria ou a correcta xestión do tempo.
-                </p>
-
-                <figure>
-                    <a href="https://github.com/martindios/GreenDots" target="_blank" rel="noopener noreferrer">
-                    <img
-                        src="./imgs/greendots.jpg"
-                        alt="Capturas de pantalla da aplicación GreenDots en funcionamento, mostrando o mapa interactivo e as reseñas de locais sostíbeis."
-                        width="480" height="270"
-                        aria-describedby="cap-greendots">
-                    </a>
-                    <figcaption id="cap-greendots">
-                    Capturas da aplicación <strong>GreenDots</strong> en funcionamento.
-                    <a href="https://github.com/martindios/GreenDots" target="_blank" rel="noopener noreferrer">Ver proxecto en GitHub</a>.
-                    </figcaption>
-                </figure>
-            </div>
-
-            <div>
-                <h3>Look for the Capy</h3>
-
-                <p>
-                    Look for the Capy é un xogo desenvolvido en C++ que utiliza OpenGL 3.3 para crear un terreo 3D procedimental usando ruído de Perlin. O obxectivo do xogo é atopar unha capibara ao longo do terreo todas as veces que sexa posible. Ten en conta que se tardas demasiado en atopala, perderás o xogo.
-                </p>
-
-                <figure>
-                    <a href="https://github.com/martindios/LookForTheCapy" target="_blank" rel="noopener noreferrer">
-                        <img
-                            src="./imgs/look-for-the-capy.png"
-                            alt="Captura de pantalla do xogo Look for the Capy, mostrando o terreo 3D procedimental e a capibara que debe ser atopada."
-                            width="480" height="270"
-                            aria-describedby="cap-lookforthecapy">
-                    </a>
-                    <figcaption id="cap-lookforthecapy">
-                        Captura do xogo <strong>Look for the Capy</strong>.
-                        <a href="https://github.com/martindios/LookForTheCapy" target="_blank" rel="noopener noreferrer">Ver proxecto en GitHub</a>.
-                    </figcaption>
-                </figure>
-
-                <p><strong>Tecnologías:</strong> C++, OpenGL 3.3 e GLSL.</p>
-            </div>
-        </section>    
     </div>
 
     <footer>
@@ -552,18 +271,33 @@
         <p><small>Martín González Dios.</small></p>
     </footer>
 
-    <!-- JS for language switching functionality -->
     <script>
-        function switchLanguage(language) {
-            const allLanguages = document.querySelectorAll('.language-content');
-            allLanguages.forEach(content => {
-                content.style.display = 'none';
-            });
+        let translations = {};
+        let currentLang = 'es';
 
-            const selectedLanguage = document.getElementById(language);
-            if (selectedLanguage) {
-                selectedLanguage.style.display = 'block';
+        // Load translations
+        async function loadTranslations() {
+            try {
+                const response = await fetch('./translations.json');
+                translations = await response.json();
+            } catch (error) {
+                console.error('Error loading translations:', error);
             }
+        }
+
+        // Update all elements with data-i18n attribute
+        function updateContent() {
+            document.querySelectorAll('[data-i18n]').forEach(element => {
+                const key = element.getAttribute('data-i18n');
+                if (translations[currentLang] && translations[currentLang][key]) {
+                    element.textContent = translations[currentLang][key];
+                }
+            });
+        }
+
+        function switchLanguage(language) {
+            currentLang = language;
+            updateContent();
 
             // Update active language link styling
             const allLanguageLinks = document.querySelectorAll('nav a');
@@ -574,19 +308,7 @@
             });
 
             // Style active language link
-            let activeLinkId;
-            switch(language) {
-                case 'english':
-                    activeLinkId = 'lang-en';
-                    break;
-                case 'spanish':
-                    activeLinkId = 'lang-es';
-                    break;
-                case 'galician':
-                    activeLinkId = 'lang-gl';
-                    break;
-            }
-
+            const activeLinkId = `lang-${language}`;
             const activeLink = document.getElementById(activeLinkId);
             if (activeLink) {
                 activeLink.classList.add('active');
@@ -595,8 +317,7 @@
             }
 
             // Update page lang attribute
-            document.documentElement.lang = language === 'english' ? 'en' : 
-                                          language === 'spanish' ? 'es' : 'gl';
+            document.documentElement.lang = language;
         }
 
         function toggleDarkMode() {
@@ -605,24 +326,24 @@
             
             if (body.classList.contains('dark-mode')) {
                 body.classList.remove('dark-mode');
-                button.textContent = 'Dark Mode';
+                button.textContent = translations[currentLang]?.dark_mode || 'Dark Mode';
             } else {
                 body.classList.add('dark-mode');
-                button.textContent = 'Light Mode';
+                button.textContent = translations[currentLang]?.light_mode || 'Light Mode';
             }
         }
 
-        // Initialize page with browser lang or Spanish as default
-        document.addEventListener('DOMContentLoaded', function() {
+        // Initialize page
+        document.addEventListener('DOMContentLoaded', async function() {
+            await loadTranslations();
+            
             const browserLang = navigator.language || navigator.userLanguage;
-            let defaultLang = 'spanish'; // Default to Spanish
+            let defaultLang = 'es';
             
             if (browserLang.startsWith('en')) {
-                defaultLang = 'english';
+                defaultLang = 'en';
             } else if (browserLang.startsWith('gl')) {
-                defaultLang = 'galician';
-            } else if (browserLang.startsWith('es')) {
-                defaultLang = 'spanish';
+                defaultLang = 'gl';
             }
             
             switchLanguage(defaultLang);
