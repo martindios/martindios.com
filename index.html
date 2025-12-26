@@ -14,6 +14,7 @@
     <link rel="manifest" href="./logo/site.webmanifest">
     
     <meta name="description" content="Martindios personal website">
+    <meta name="theme-color" content="#ffffff" id="theme-color-meta">
     <style>
         body {
             margin: 1.25rem auto;
@@ -342,27 +343,35 @@
         function toggleDarkMode() {
             const body = document.body;
             const button = document.getElementById('dark-mode-toggle');
+            const themeColorMeta = document.getElementById('theme-color-meta');
             
             if (body.classList.contains('dark-mode')) {
                 body.classList.remove('dark-mode');
                 button.textContent = translations[currentLang]?.dark_mode || 'Dark Mode';
                 button.setAttribute('aria-pressed', 'false');
+                themeColorMeta.setAttribute('content', '#ffffff');
                 localStorage.setItem('darkMode', 'false');
             } else {
                 body.classList.add('dark-mode');
                 button.textContent = translations[currentLang]?.light_mode || 'Light Mode';
                 button.setAttribute('aria-pressed', 'true');
+                themeColorMeta.setAttribute('content', '#1a1a1a');
                 localStorage.setItem('darkMode', 'true');
             }
         }
 
         function loadPreferences() {
+            const themeColorMeta = document.getElementById('theme-color-meta');
+            
             const savedDarkMode = localStorage.getItem('darkMode');
             if (savedDarkMode === 'true') {
                 document.body.classList.add('dark-mode');
                 const button = document.getElementById('dark-mode-toggle');
                 button.textContent = translations[currentLang]?.light_mode || 'Light Mode';
                 button.setAttribute('aria-pressed', 'true');
+                themeColorMeta.setAttribute('content', '#1a1a1a');
+            } else {
+                themeColorMeta.setAttribute('content', '#ffffff');
             }
 
             const savedLanguage = localStorage.getItem('preferredLanguage');
