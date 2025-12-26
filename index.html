@@ -90,6 +90,11 @@
             align-items: center;
             flex-wrap: nowrap;
             margin-top: 0.5rem;
+            list-style: none;
+            padding: 0;
+        }
+        .contact-section li {
+            display: inline-flex;
         }
         .contact-section a {
             display: inline-flex;
@@ -150,7 +155,7 @@
     <hr>
 
     <!-- Main content -->
-    <div id="content">
+    <main id="content">
         <h1 data-i18n="name">Martín González Dios</h1>
         
         <section>
@@ -158,17 +163,23 @@
             <br>
             <em data-i18n="subtitle">Ingeniero informático orientado a la ciberseguridad.</em>
 
-            <div class="contact-section">
-                <a href="https://www.linkedin.com/in/mart%C3%ADn-gonz%C3%A1lez-dios/" target="_blank" aria-label="LinkedIn">
-                    <img class="svg-img" src="./imgs/linkedin.svg" alt="LinkedIn">
-                </a>
-                <a href="https://github.com/martindios" target="_blank" aria-label="GitHub">
-                    <img class="svg-img" src="./imgs/github.svg" alt="GitHub">
-                </a>
-                <a href="mailto:gonzalezdiosmartin@gmail.com" target="_blank" aria-label="Email">
-                    <img class="svg-img" src="./imgs/email.svg" alt="Email">
-                </a>
-            </div>
+            <ul class="contact-section">
+                <li>
+                    <a href="https://www.linkedin.com/in/mart%C3%ADn-gonz%C3%A1lez-dios/" target="_blank" aria-label="LinkedIn">
+                        <img class="svg-img" src="./imgs/linkedin.svg" alt="LinkedIn">
+                    </a>
+                </li>
+                <li>
+                    <a href="https://github.com/martindios" target="_blank" aria-label="GitHub">
+                        <img class="svg-img" src="./imgs/github.svg" alt="GitHub">
+                    </a>
+                </li>
+                <li>
+                    <a href="mailto:gonzalezdiosmartin@gmail.com" target="_blank" aria-label="Email">
+                        <img class="svg-img" src="./imgs/email.svg" alt="Email">
+                    </a>
+                </li>
+            </ul>
         </section>
 
         <section>
@@ -216,7 +227,7 @@
         <section>
             <h2 data-i18n="projects_title">Proyectos/Logros</h2>
             
-            <div>
+            <article>
                 <h3 data-i18n="hackudc_title">Ganadores HackUDC 2025</h3>
                 <p data-i18n="hackudc_desc"></p>
 
@@ -233,9 +244,9 @@
                     </figcaption>
                 </figure>
             
-            </div>
+            </article>
 
-            <div>
+            <article>
                 <h3 data-i18n="eije_title">Finalistas EIJE 2025</h3>
 
                 <p data-i18n="eije_desc"></p>
@@ -252,9 +263,9 @@
                         <a href="https://github.com/martindios/GreenDots" target="_blank" rel="noopener noreferrer" data-i18n="github_link"></a>.
                     </figcaption>
                 </figure>
-            </div>
+            </article>
 
-            <div>
+            <article>
                 <h3 data-i18n="capy_title">Look for the Capy</h3>
 
                 <p data-i18n="capy_desc"></p>
@@ -273,9 +284,9 @@
                 </figure>
 
                 <p><strong data-i18n="technologies"></strong> C++, OpenGL 3.3 y GLSL.</p>
-            </div>
+            </article>
         </section>
-    </div>
+    </main>
 
     <footer>
         <hr>
