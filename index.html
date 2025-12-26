@@ -177,17 +177,17 @@
 
             <ul class="contact-section">
                 <li>
-                    <a href="https://www.linkedin.com/in/mart%C3%ADn-gonz%C3%A1lez-dios/" target="_blank" aria-label="LinkedIn">
+                    <a href="https://www.linkedin.com/in/mart%C3%ADn-gonz%C3%A1lez-dios/" target="_blank" aria-label="LinkedIn" rel="noopener noreferrer">
                         <img class="svg-img" src="./imgs/linkedin.svg" alt="Perfil de LinkedIn de Martín González Dios" data-i18n-alt="alt_linkedin">
                     </a>
                 </li>
                 <li>
-                    <a href="https://github.com/martindios" target="_blank" aria-label="GitHub">
+                    <a href="https://github.com/martindios" target="_blank" aria-label="GitHub" rel="noopener noreferrer">
                         <img class="svg-img" src="./imgs/github.svg" alt="Repositorio de GitHub de Martín González Dios" data-i18n-alt="alt_github">
                     </a>
                 </li>
                 <li>
-                    <a href="mailto:gonzalezdiosmartin@gmail.com" target="_blank" aria-label="Email">
+                    <a href="mailto:gonzalezdiosmartin@gmail.com" target="_blank" aria-label="Email" rel="noopener noreferrer">
                         <img class="svg-img" src="./imgs/email.svg" alt="Enviar correo electrónico a Martín González Dios" data-i18n-alt="alt_email">
                     </a>
                 </li>
@@ -197,8 +197,8 @@
         <section>
             <h2 data-i18n="about_title">Acerca de mí</h2>
 
-            <p data-i18n="about_p1"></p>
-            <p data-i18n="about_p2"></p>
+            <p data-i18n="about_p1">Estudiante de Ingeniería Informática, orientado al campo de la ciberseguridad. Participo activamente en CTFs y hackathons, con experiencia en pruebas de intrusión y desarrollo de exploits básicos. Mi formación es continua, combinando los estudios universitarios con el aprendizaje autodidacta. En la universidad he adquirido conocimientos sólidos en sistemas operativos, redes, bases de datos, APIs y otras materias esenciales que completan la formación de un ingeniero informático. Esto me ha proporcionado una base sólida. Paralelamente, de forma autodidacta profundizo en ciberseguridad y administración de redes mediante plataformas como Hack The Box o a través de diversas certificaciones técnicas.</p>
+            <p data-i18n="about_p2">Soy un apasionado del open source; la mayoría de las herramientas que utilizo a diario son FOSS. Trabajo principalmente con Arch Linux en mi entorno de desarrollo y empleo Debian para servidores. Mi editor de código predilecto es Neovim, es el que más uso y en el que más cómodo me siento.</p>
             
             <h3 data-i18n="education_title">Educación</h3>
             <ul>
@@ -213,7 +213,7 @@
 
                     <br>
 
-                    <a href="https://www.credly.com/badges/97b91ea6-488f-4d3f-b0ed-45b23bf225e0" target="_blank">
+                    <a href="https://www.credly.com/badges/97b91ea6-488f-4d3f-b0ed-45b23bf225e0" target="_blank" rel="noopener noreferrer">
                         <img src="./imgs/lpic1.jpg" alt="Insignia de certificación LPIC-1" data-i18n-alt="alt_lpic1" width="100" height="100">
                     </a>
 
@@ -224,7 +224,7 @@
 
                     <br>
 
-                    <a href="https://www.credly.com/badges/ce3382d3-ba95-4f6b-9505-33fdec75fb74" target="_blank">
+                    <a href="https://www.credly.com/badges/ce3382d3-ba95-4f6b-9505-33fdec75fb74" target="_blank" rel="noopener noreferrer">
                         <img src="./imgs/ccst.png" alt="Insignia de certificación CCST Cybersecurity" data-i18n-alt="alt_ccst" width="100" height="100" class="ccst-badge">
                     </a>
 
@@ -403,32 +403,46 @@
         }
 
         function loadPreferences() {
-            const themeColorMeta = document.getElementById('theme-color-meta');
-            
-            const savedDarkMode = localStorage.getItem('darkMode');
-            if (savedDarkMode === 'true') {
-                document.body.classList.add('dark-mode');
-                const button = document.getElementById('dark-mode-toggle');
-                button.textContent = translations[currentLang]?.light_mode || 'Light Mode';
-                button.setAttribute('aria-pressed', 'true');
-                themeColorMeta.setAttribute('content', '#1a1a1a');
-            } else {
-                themeColorMeta.setAttribute('content', '#ffffff');
-            }
+            try {
+                const themeColorMeta = document.getElementById('theme-color-meta');
+                
+                const savedDarkMode = localStorage.getItem('darkMode');
+                if (savedDarkMode === 'true') {
+                    document.body.classList.add('dark-mode');
+                    const button = document.getElementById('dark-mode-toggle');
+                    button.textContent = translations[currentLang]?.light_mode || 'Light Mode';
+                    button.setAttribute('aria-pressed', 'true');
+                    themeColorMeta.setAttribute('content', '#1a1a1a');
+                } else {
+                    themeColorMeta.setAttribute('content', '#ffffff');
+                }
 
-            const savedLanguage = localStorage.getItem('preferredLanguage');
-            if (savedLanguage && ['es', 'gl', 'en'].includes(savedLanguage)) {
-                return savedLanguage;
-            }
+                const savedLanguage = localStorage.getItem('preferredLanguage');
+                if (savedLanguage && ['es', 'gl', 'en'].includes(savedLanguage)) {
+                    return savedLanguage;
+                }
 
-            // If no saved preference, use browser language
-            const browserLang = navigator.language || navigator.userLanguage;
-            if (browserLang.startsWith('en')) {
-                return 'en';
-            } else if (browserLang.startsWith('gl')) {
-                return 'gl';
+                // If no saved preference, use browser language
+                const browserLang = navigator.language || navigator.userLanguage;
+                if (browserLang.startsWith('en')) {
+                    return 'en';
+                } else if (browserLang.startsWith('gl')) {
+                    return 'gl';
+                }
+                return 'es';
+            } catch (error) {
+                console.warn('localStorage not available:', error);
+                
+                try {
+                    const browserLang = navigator.language || navigator.userLanguage;
+                    if (browserLang.startsWith('en')) return 'en';
+                    if (browserLang.startsWith('gl')) return 'gl';
+                } catch (e) {
+                    console.warn('Could not detect browser language');
+                }
+                
+                return 'es';
             }
-            return 'es';
         }
 
         document.body.classList.add('loading');
