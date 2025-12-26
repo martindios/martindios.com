@@ -144,6 +144,10 @@
             font-weight: bold;
             text-decoration: none;
         }
+
+        body.loading {
+            visibility: hidden;
+        }
     </style>
 </head>
 <body>
@@ -167,24 +171,24 @@
         <h1 data-i18n="name">Martín González Dios</h1>
         
         <section>
-            <img src="./imgs/martindios.jpg" alt="Photo of Martín González Dios" width="200" height="200">
+            <img src="./imgs/martindios.jpg" alt="Fotografía de Martín González Dios" data-i18n-alt="alt_photo" width="200" height="200">
             <br>
             <em data-i18n="subtitle">Ingeniero informático orientado a la ciberseguridad.</em>
 
             <ul class="contact-section">
                 <li>
                     <a href="https://www.linkedin.com/in/mart%C3%ADn-gonz%C3%A1lez-dios/" target="_blank" aria-label="LinkedIn">
-                        <img class="svg-img" src="./imgs/linkedin.svg" alt="LinkedIn">
+                        <img class="svg-img" src="./imgs/linkedin.svg" alt="Perfil de LinkedIn de Martín González Dios" data-i18n-alt="alt_linkedin">
                     </a>
                 </li>
                 <li>
                     <a href="https://github.com/martindios" target="_blank" aria-label="GitHub">
-                        <img class="svg-img" src="./imgs/github.svg" alt="GitHub">
+                        <img class="svg-img" src="./imgs/github.svg" alt="Repositorio de GitHub de Martín González Dios" data-i18n-alt="alt_github">
                     </a>
                 </li>
                 <li>
                     <a href="mailto:gonzalezdiosmartin@gmail.com" target="_blank" aria-label="Email">
-                        <img class="svg-img" src="./imgs/email.svg" alt="Email">
+                        <img class="svg-img" src="./imgs/email.svg" alt="Enviar correo electrónico a Martín González Dios" data-i18n-alt="alt_email">
                     </a>
                 </li>
             </ul>
@@ -210,7 +214,7 @@
                     <br>
 
                     <a href="https://www.credly.com/badges/97b91ea6-488f-4d3f-b0ed-45b23bf225e0" target="_blank">
-                        <img src="./imgs/lpic1.jpg" alt="LPIC-1 badge" width="100" height="100">
+                        <img src="./imgs/lpic1.jpg" alt="Insignia de certificación LPIC-1" data-i18n-alt="alt_lpic1" width="100" height="100">
                     </a>
 
                 </li>
@@ -221,7 +225,7 @@
                     <br>
 
                     <a href="https://www.credly.com/badges/ce3382d3-ba95-4f6b-9505-33fdec75fb74" target="_blank">
-                        <img src="./imgs/ccst.png" alt="CCST Cybersecurity Badge" width="100" height="100" class="ccst-badge">
+                        <img src="./imgs/ccst.png" alt="Insignia de certificación CCST Cybersecurity" data-i18n-alt="alt_ccst" width="100" height="100" class="ccst-badge">
                     </a>
 
                 </li>
@@ -243,7 +247,8 @@
                     <a href="https://github.com/martindios/Pickture" target="_blank" rel="noopener noreferrer">
                         <img
                         src="./imgs/pickture.png"
-                        alt="Pickture extension screenshot"
+                        alt="Captura de pantalla de la extensión Pickture mostrando su interfaz de usuario"
+                        data-i18n-alt="alt_pickture"
                         width="479" height="288">
                     </a>
                     <figcaption>
@@ -263,7 +268,8 @@
                     <a href="https://github.com/martindios/GreenDots" target="_blank" rel="noopener noreferrer">
                     <img
                         src="./imgs/greendots.jpg"
-                        alt="GreenDots app screenshots"
+                        alt="Capturas de pantalla de la aplicación móvil GreenDots mostrando sus diferentes funcionalidades"
+                        data-i18n-alt="alt_greendots"
                         width="480" height="270">
                     </a>
                     <figcaption>
@@ -282,7 +288,8 @@
                     <a href="https://github.com/martindios/LookForTheCapy" target="_blank" rel="noopener noreferrer">
                         <img
                             src="./imgs/look-for-the-capy.png"
-                            alt="Look for the Capy game screenshot"
+                            alt="Captura de pantalla del videojuego Look for the Capy"
+                            data-i18n-alt="alt_capy"
                             width="480" height="270">
                     </a>
                     <figcaption>
@@ -323,6 +330,14 @@
                     element.textContent = translations[currentLang][key];
                 }
             });
+            
+            document.querySelectorAll('[data-i18n-alt]').forEach(element => {
+                const key = element.getAttribute('data-i18n-alt');
+                if (translations[currentLang] && translations[currentLang][key]) {
+                    element.setAttribute('alt', translations[currentLang][key]);
+                }
+            });
+            
             updateMetaTags();
         }
 
@@ -416,6 +431,8 @@
             return 'es';
         }
 
+        document.body.classList.add('loading');
+
         // Initialize page
         document.addEventListener('DOMContentLoaded', async function() {
             await loadTranslations();
@@ -423,6 +440,8 @@
             // Load preferences and set language
             const defaultLang = loadPreferences();
             switchLanguage(defaultLang);
+
+            document.body.classList.remove('loading');
         });
     </script>
 </body>

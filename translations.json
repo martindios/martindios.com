@@ -32,7 +32,16 @@
     "capy_caption": "Captura del juego",
     "technologies": "Tecnologías:",
     "og_title": "Martín González Dios - Ingeniero Informático",
-    "og_description": "Página web personal de Martín González Dios, ingeniero informático orientado a la ciberseguridad."
+    "og_description": "Página web personal de Martín González Dios, ingeniero informático orientado a la ciberseguridad.",
+    "alt_photo": "Fotografía de Martín González Dios",
+    "alt_linkedin": "Perfil de LinkedIn de Martín González Dios",
+    "alt_github": "Repositorio de GitHub de Martín González Dios",
+    "alt_email": "Enviar correo electrónico a Martín González Dios",
+    "alt_lpic1": "Insignia de certificación LPIC-1",
+    "alt_ccst": "Insignia de certificación CCST Cybersecurity",
+    "alt_pickture": "Captura de pantalla de la extensión Pickture mostrando su interfaz de usuario",
+    "alt_greendots": "Capturas de pantalla de la aplicación móvil GreenDots mostrando sus diferentes funcionalidades",
+    "alt_capy": "Captura de pantalla del videojuego Look for the Capy"
   },
   "en": {
     "lang_label": "Language:",
@@ -67,7 +76,16 @@
     "capy_caption": "Screenshot of the game",
     "technologies": "Technologies:",
     "og_title": "Martín González Dios - Computer Engineer",
-    "og_description": "Personal website of Martín González Dios, computer engineer focused on cybersecurity."
+    "og_description": "Personal website of Martín González Dios, computer engineer focused on cybersecurity.",
+    "alt_photo": "Photograph of Martín González Dios",
+    "alt_linkedin": "LinkedIn profile of Martín González Dios",
+    "alt_github": "GitHub repository of Martín González Dios",
+    "alt_email": "Send email to Martín González Dios",
+    "alt_lpic1": "LPIC-1 certification badge",
+    "alt_ccst": "CCST Cybersecurity certification badge",
+    "alt_pickture": "Screenshot of the Pickture extension showing its user interface",
+    "alt_greendots": "Screenshots of the GreenDots mobile application showing its different functionalities",
+    "alt_capy": "Screenshot of the Look for the Capy video game"
   },
   "gl": {
     "lang_label": "Idioma:",
@@ -102,6 +120,15 @@
     "capy_caption": "Captura do xogo",
     "technologies": "Tecnoloxías:",
     "og_title": "Martín González Dios - Enxeñeiro Informático",
-    "og_description": "Páxina web persoal de Martín González Dios, enxeñeiro informático orientado á ciberseguridade."
+    "og_description": "Páxina web persoal de Martín González Dios, enxeñeiro informático orientado á ciberseguridade.",
+    "alt_photo": "Fotografía de Martín González Dios",
+    "alt_linkedin": "Perfil de LinkedIn de Martín González Dios",
+    "alt_github": "Repositorio de GitHub de Martín González Dios",
+    "alt_email": "Enviar correo electrónico a Martín González Dios",
+    "alt_lpic1": "Insignia de certificación LPIC-1",
+    "alt_ccst": "Insignia de certificación CCST Cybersecurity",
+    "alt_pickture": "Captura de pantalla da extensión Pickture mostrando a súa interface de usuario",
+    "alt_greendots": "Capturas de pantalla da aplicación móbil GreenDots mostrando as súas diferentes funcionalidades",
+    "alt_capy": "Captura de pantalla do videoxogo Look for the Capy"
   }
 }
