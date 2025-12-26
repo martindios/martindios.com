@@ -11,7 +11,7 @@
     <link rel="icon" type="image/png" sizes="32x32" href="./logo/favicon-32x32.png">
     <link rel="apple-touch-icon" sizes="180x180" href="./logo/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="192x192" href="./logo/android-icon-192x192.png">
-    <link rel="manifest" href="/logo/site.webmanifest">
+    <link rel="manifest" href="./logo/site.webmanifest">
     
     <meta name="description" content="Martindios personal website">
     <style>
@@ -321,6 +321,8 @@
             currentLang = language;
             updateContent();
 
+            localStorage.setItem('preferredLanguage', language);
+
             // Update active language link styling
             const allLanguageLinks = document.querySelectorAll('nav a, nav button');
             allLanguageLinks.forEach(link => {
@@ -345,26 +347,45 @@
                 body.classList.remove('dark-mode');
                 button.textContent = translations[currentLang]?.dark_mode || 'Dark Mode';
                 button.setAttribute('aria-pressed', 'false');
+                localStorage.setItem('darkMode', 'false');
             } else {
                 body.classList.add('dark-mode');
                 button.textContent = translations[currentLang]?.light_mode || 'Light Mode';
                 button.setAttribute('aria-pressed', 'true');
+                localStorage.setItem('darkMode', 'true');
             }
+        }
+
+        function loadPreferences() {
+            const savedDarkMode = localStorage.getItem('darkMode');
+            if (savedDarkMode === 'true') {
+                document.body.classList.add('dark-mode');
+                const button = document.getElementById('dark-mode-toggle');
+                button.textContent = translations[currentLang]?.light_mode || 'Light Mode';
+                button.setAttribute('aria-pressed', 'true');
+            }
+
+            const savedLanguage = localStorage.getItem('preferredLanguage');
+            if (savedLanguage && ['es', 'gl', 'en'].includes(savedLanguage)) {
+                return savedLanguage;
+            }
+
+            // If no saved preference, use browser language
+            const browserLang = navigator.language || navigator.userLanguage;
+            if (browserLang.startsWith('en')) {
+                return 'en';
+            } else if (browserLang.startsWith('gl')) {
+                return 'gl';
+            }
+            return 'es';
         }
 
         // Initialize page
         document.addEventListener('DOMContentLoaded', async function() {
             await loadTranslations();
             
-            const browserLang = navigator.language || navigator.userLanguage;
-            let defaultLang = 'es';
-            
-            if (browserLang.startsWith('en')) {
-                defaultLang = 'en';
-            } else if (browserLang.startsWith('gl')) {
-                defaultLang = 'gl';
-            }
-            
+            // Load preferences and set language
+            const defaultLang = loadPreferences();
             switchLanguage(defaultLang);
         });
     </script>
