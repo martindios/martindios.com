@@ -30,7 +30,9 @@
     "capy_title": "Look for the Capy",
     "capy_desc": "Look for the Capy es un juego desarrollado en C++ que utiliza OpenGL 3.3 para crear un terreno 3D procedimental usando ruido de Perlin. El objetivo del juego es encontrar una capibara a lo largo del terreno todas las veces que sea posible. Ten en cuenta que si tardas demasiado en encontrarla, perderás el juego.",
     "capy_caption": "Captura del juego",
-    "technologies": "Tecnologías:"
+    "technologies": "Tecnologías:",
+    "og_title": "Martín González Dios - Ingeniero Informático",
+    "og_description": "Página web personal de Martín González Dios, ingeniero informático orientado a la ciberseguridad."
   },
   "en": {
     "lang_label": "Language:",
@@ -63,7 +65,9 @@
     "capy_title": "Look for the Capy",
     "capy_desc": "Look for the Capy is a game developed in C++ that uses OpenGL 3.3 to create procedural 3D terrain using Perlin noise. The goal of the game is to find a capybara across the terrain as many times as possible. Keep in mind that if you take too long to find it, you will lose the game.",
     "capy_caption": "Screenshot of the game",
-    "technologies": "Technologies:"
+    "technologies": "Technologies:",
+    "og_title": "Martín González Dios - Computer Engineer",
+    "og_description": "Personal website of Martín González Dios, computer engineer focused on cybersecurity."
   },
   "gl": {
     "lang_label": "Idioma:",
@@ -96,6 +100,8 @@
     "capy_title": "Look for the Capy",
     "capy_desc": "Look for the Capy é un xogo desenvolvido en C++ que utiliza OpenGL 3.3 para crear un terreo 3D procedimental usando ruído de Perlin. O obxectivo do xogo é atopar unha capibara ao longo do terreo todas as veces que sexa posible. Ten en conta que se tardas demasiado en atopala, perderás o xogo.",
     "capy_caption": "Captura do xogo",
-    "technologies": "Tecnoloxías:"
+    "technologies": "Tecnoloxías:",
+    "og_title": "Martín González Dios - Enxeñeiro Informático",
+    "og_description": "Páxina web persoal de Martín González Dios, enxeñeiro informático orientado á ciberseguridade."
   }
 }

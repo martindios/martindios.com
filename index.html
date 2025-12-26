@@ -13,7 +13,14 @@
     <link rel="icon" type="image/png" sizes="192x192" href="./logo/android-icon-192x192.png">
     <link rel="manifest" href="./logo/site.webmanifest">
     
-    <meta name="description" content="Martindios personal website">
+    <meta name="description" content="Página web personal de Martín González Dios">
+
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://martindios.com/" id="og-url">
+    <meta property="og:title" content="Martín González Dios - Ingeniero Informático" id="og-title">
+    <meta property="og:description" content="Página web personal de Martín González Dios, ingeniero informático orientado a la ciberseguridad." id="og-description">
+    <meta property="og:image" content="https://martindios.com/imgs/martindios.jpg" id="og-image">
+
     <meta name="theme-color" content="#ffffff" id="theme-color-meta">
     <style>
         body {
@@ -316,6 +323,26 @@
                     element.textContent = translations[currentLang][key];
                 }
             });
+            updateMetaTags();
+        }
+
+        function updateMetaTags() {
+            if (!translations[currentLang]) return;
+            
+            const ogTitle = document.getElementById('og-title');
+            if (ogTitle && translations[currentLang].og_title) {
+                ogTitle.setAttribute('content', translations[currentLang].og_title);
+            }
+            
+            const ogDescription = document.getElementById('og-description');
+            if (ogDescription && translations[currentLang].og_description) {
+                ogDescription.setAttribute('content', translations[currentLang].og_description);
+            }
+            
+            const metaDescription = document.querySelector('meta[name="description"]');
+            if (metaDescription && translations[currentLang].og_description) {
+                metaDescription.setAttribute('content', translations[currentLang].og_description);
+            }
         }
 
         function switchLanguage(language) {
