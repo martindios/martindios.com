@@ -11,15 +11,22 @@
     <link rel="icon" type="image/png" sizes="32x32" href="./logo/favicon-32x32.png">
     <link rel="apple-touch-icon" sizes="180x180" href="./logo/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="192x192" href="./logo/android-icon-192x192.png">
-    <link rel="manifest" href="/logo/site.webmanifest">
+    <link rel="manifest" href="./logo/site.webmanifest">
     
-    <meta name="description" content="Martindios personal website">
+    <meta name="description" content="Página web personal de Martín González Dios">
+
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://martindios.com/" id="og-url">
+    <meta property="og:title" content="Martín González Dios - Ingeniero Informático" id="og-title">
+    <meta property="og:description" content="Página web personal de Martín González Dios, ingeniero informático orientado a la ciberseguridad." id="og-description">
+    <meta property="og:image" content="https://martindios.com/imgs/martindios.jpg" id="og-image">
+
+    <meta name="theme-color" content="#ffffff" id="theme-color-meta">
     <style>
         body {
-            margin: 1.25rem;
+            margin: 1.25rem auto;
             padding: 0;
             max-width: 75rem;
-            margin: 1.25rem auto;
             padding: 0 1.25rem;
         }
         
@@ -91,6 +98,11 @@
             align-items: center;
             flex-wrap: nowrap;
             margin-top: 0.5rem;
+            list-style: none;
+            padding: 0;
+        }
+        .contact-section li {
+            display: inline-flex;
         }
         .contact-section a {
             display: inline-flex;
@@ -116,9 +128,25 @@
             height: auto;
         }
 
+        .ccst-badge {
+            background-color: white;
+            padding: 0.2rem;
+            display: inline-block;
+        }
+
         button {
             padding: 0.3125rem 0.625rem; 
             cursor: pointer;
+        }
+
+        nav ul li a.active,
+        nav ul li button.active {
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+        body.loading {
+            visibility: hidden;
         }
     </style>
 </head>
@@ -126,396 +154,311 @@
     <!-- Language Selection -->
     <nav>
         <div class="nav-left">
-            <h4>Idioma:</h4>
+            <h4 data-i18n="lang_label">Idioma:</h4>
             <ul>
-               <li><a href="#" onclick="switchLanguage('spanish')" id="lang-es">Español</a></li>
-                <li><a href="#" onclick="switchLanguage('galician')" id="lang-gl">Galego</a></li>
-                <li><a href="#" onclick="switchLanguage('english')" id="lang-en">English</a></li>
+               <li><a href="javascript:void(0)" onclick="switchLanguage('es')" id="lang-es">Español</a></li>
+                <li><a href="javascript:void(0)" onclick="switchLanguage('gl')" id="lang-gl">Galego</a></li>
+                <li><a href="javascript:void(0)" onclick="switchLanguage('en')" id="lang-en">English</a></li>
             </ul>
         </div>
-        <button onclick="toggleDarkMode()" id="dark-mode-toggle">Dark Mode</button>
+        <button onclick="toggleDarkMode()" id="dark-mode-toggle" data-i18n="dark_mode" aria-pressed="false">Dark Mode</button>
     </nav>
 
     <hr>
 
-    <!-- English version -->
-    <div id="english" class="language-content" style="display: none;">
-        <h1>Martín González Dios</h1>
+    <!-- Main content -->
+    <main id="content">
+        <h1 data-i18n="name">Martín González Dios</h1>
         
         <section>
-            <img src="./imgs/martindios.jpg" alt="Photo of Martín González Dios" width="200" height="200">
+            <img src="./imgs/martindios.jpg" alt="Fotografía de Martín González Dios" data-i18n-alt="alt_photo" width="200" height="200">
             <br>
-            <em>Computer Engineering student focused on backend development, embedded systems and containerization.</em>
+            <em data-i18n="subtitle">Ingeniero informático orientado a la ciberseguridad.</em>
 
-            <div class="contact-section">
-                <a href="https://www.linkedin.com/in/mart%C3%ADn-gonz%C3%A1lez-dios/" target="_blank" aria-label="LinkedIn">
-                    <img class="svg-img" src="./imgs/linkedin.svg" alt="LinkedIn">
-                </a>
-                <a href="https://github.com/martindios" target="_blank" aria-label="GitHub">
-                    <img class="svg-img" src="./imgs/github.svg" alt="GitHub">
-                </a>
-                <a href="mailto:gonzalezdiosmartin@gmail.com" target="_blank" aria-label="Email">
-                    <img class="svg-img" src="./imgs/email.svg" alt="Email">
-                </a>
-            </div>
-        </section>
-
-        <section>
-            <h2>About me</h2>
-
-            <p>I am a Computer Engineering student at USC, currently focused on backend development with the Spring ecosystem, as well as embedded systems with Rust. I also work on containerizing applications of various kinds using Docker.</p>
-
-            <p>My training is ongoing; I combine university studies with self-directed learning. At university I have acquired solid knowledge in relational databases — especially PostgreSQL — as well as in operating systems, networks, and other essential subjects that complete the education of a computer engineer, which has given me a strong theoretical and practical foundation. In addition, I continue to expand my university learning into new topics such as artificial intelligence, distributed computing, etc. In parallel, through self-study I explore areas like cybersecurity and network administration to strengthen my technical skills.</p>
-
-            <p>I am passionate about open source; most of the tools I use daily in the software development lifecycle are FOSS. I primarily work with Arch Linux in my development environment and use Debian for servers. My preferred code editor is Neovim, it's the one I use most and the one I feel most comfortable with.</p>
-            
-            <h3>Education</h3>
-            <ul>
-                <li><strong>High School Diploma in Science</strong> - IES Frei Martín Sarmiento and IES Xunqueira I (2021-2023)</li>
-                <li><strong>Bachelor's Degree in Computer Engineering</strong> - University of Santiago de Compostela (2023-2027)</li>
-            </ul>
-            
-            <h3>Certifications</h3>
-            <ul>
+            <ul class="contact-section">
                 <li>
-                    <strong>Introduction to Cybersecurity (Cisco)</strong> (09/2025): throughout different projects that I have created, both alone and with colleagues, I have realized how important it is to always keep cybersecurity in mind, regardless of the project phase, software that doesn't look at security from different perspectives will end up causing more problemas than solutions. For this reason I decided to start learning cybersecurity in a more specialized way, starting with this Cisco certification. 
-
-                    <br>
-
-                    <a href="https://www.credly.com/badges/ce3382d3-ba95-4f6b-9505-33fdec75fb74" target="_blank">
-                        <img src="./imgs/intro-cybersec-cisco.png" alt="Cisco Networking Academy Badge: Introduction to Cybersecurity" width="100" height="100">
+                    <a href="https://www.linkedin.com/in/mart%C3%ADn-gonz%C3%A1lez-dios/" target="_blank" aria-label="LinkedIn" rel="noopener noreferrer">
+                        <img class="svg-img" src="./imgs/linkedin.svg" alt="Perfil de LinkedIn de Martín González Dios" data-i18n-alt="alt_linkedin">
                     </a>
                 </li>
-                <br>
                 <li>
-                    <strong>Advanced cybersecurity in operational technology environments</strong> (09/2025): I have always been interested in the intersection between the development world and the industrial world, and this course allowed me to learn how to proceed when managing a current industrial environment, with everything that entails.
+                    <a href="https://github.com/martindios" target="_blank" aria-label="GitHub" rel="noopener noreferrer">
+                        <img class="svg-img" src="./imgs/github.svg" alt="Repositorio de GitHub de Martín González Dios" data-i18n-alt="alt_github">
+                    </a>
+                </li>
+                <li>
+                    <a href="mailto:gonzalezdiosmartin@gmail.com" target="_blank" aria-label="Email" rel="noopener noreferrer">
+                        <img class="svg-img" src="./imgs/email.svg" alt="Enviar correo electrónico a Martín González Dios" data-i18n-alt="alt_email">
+                    </a>
                 </li>
             </ul>
         </section>
 
         <section>
-            <h2>Projects</h2>
+            <h2 data-i18n="about_title">Acerca de mí</h2>
+
+            <p data-i18n="about_p1">Estudiante de Ingeniería Informática, orientado al campo de la ciberseguridad. Participo activamente en CTFs y hackathons, con experiencia en pruebas de intrusión y desarrollo de exploits básicos. Mi formación es continua, combinando los estudios universitarios con el aprendizaje autodidacta. En la universidad he adquirido conocimientos sólidos en sistemas operativos, redes, bases de datos, APIs y otras materias esenciales que completan la formación de un ingeniero informático. Esto me ha proporcionado una base sólida. Paralelamente, de forma autodidacta profundizo en ciberseguridad y administración de redes mediante plataformas como Hack The Box o a través de diversas certificaciones técnicas.</p>
+            <p data-i18n="about_p2">Soy un apasionado del open source; la mayoría de las herramientas que utilizo a diario son FOSS. Trabajo principalmente con Arch Linux en mi entorno de desarrollo y empleo Debian para servidores. Mi editor de código predilecto es Neovim, es el que más uso y en el que más cómodo me siento.</p>
             
-            <div>
-                <h3>Pickture</h3>
-                <a href="https://github.com/martindios/Pickture" target="_blank">
-                    <img src="./imgs/pickture.png" alt="Screenshot of the Pickture extension in action, showing the search for clothing items online." width="479" height="288">
-                </a>
-                <p>
-                    Pickture is a Google Chrome extension oriented towards searching and discovering clothing items online. The tool allows identifying products similar to those in a selected image on any website and offers purchasing alternatives from Inditex group brands.
-                </p>
-
-                <p>For the operation of this project we use the Visual Search Inditex Tech API, an open source tool that Inditex provides to search for similar garments. To provide a persistent menu between sessions we use IndexedDB. This project was developed during the HackUDC 2025 Hackathon, it was the winner of the Inditex challenge.</p>
-            
-                <p><strong>Technologies:</strong> JavaScript, IndexedDB and Visual Search Inditex Tech API.</p>
-            </div>
-
-            <div>
-                <h3>GreenDots</h3>
-                <a href="https://github.com/martindios/GreenDots" target="_blank">
-                    <img src="./imgs/greendots.jpg" alt="Screenshot of the GreenDots application in operation, showing the interactive map and reviews of sustainable venues." width="480" height="270">
-                </a>
-                <p>
-                    GreenDots is a mobile application for Android that allows searching for sustainable venues on an interactive map, you can create reviews of the venues based on different criteria.
-                </p>
-
-                <p>The application is developed entirely in Kotlin, using a REST API built with Spring Boot for the backend and PostgreSQL for the database. This project was developed during USC's Impacthon 2025, placing second in the technical projects section.</p>
-
-                <p><strong>Technologies:</strong> Kotlin, Java, Spring Boot, PostgreSQL and REST API.</p>
-            </div>
-
-            <div>
-                <h3>Look for the Capy</h3>
-                <a href="https://github.com/martindios/LookForTheCapy" target="_blank">
-                    <img src="./imgs/look-for-the-capy.png" alt="Screenshot of the Look for the Capy game, showing the procedural 3D terrain and the capybara that must be found." width="560" height="265">
-                </a>
-                <p>
-                    Look for the Capy is a game developed in C++ that uses OpenGL 3.3 to create procedural 3D terrain using Perlin noise. The goal of the game is to find a capybara across the terrain as many times as possible. Keep in mind that if you take too long to find it, you will lose the game.
-                </p>
-                <p><strong>Technologies:</strong> C++, OpenGL 3.3 and GLSL.</p>
-            </div>
-        </section>
-    </div>
-
-    <!-- Versión española -->
-    <div id="spanish" class="language-content">
-        <h1>Martín González Dios</h1>
-        
-        <section>
-            <img src="./imgs/martindios.jpg" alt="Foto de martindios" width="200" height="200">
-            <br>
-            <em>Ingeniero informático enfocado en backend, sistemas embebidos y contenedorización.</em>
-
-            <div class="contact-section">
-                <a href="https://www.linkedin.com/in/mart%C3%ADn-gonz%C3%A1lez-dios/" target="_blank" aria-label="LinkedIn">
-                    <img class="svg-img" src="./imgs/linkedin.svg" alt="LinkedIn">
-                </a>
-                <a href="https://github.com/martindios" target="_blank" aria-label="GitHub">
-                    <img class="svg-img" src="./imgs/github.svg" alt="GitHub">
-                </a>
-                <a href="mailto:gonzalezdiosmartin@gmail.com" target="_blank" aria-label="Email">
-                    <img class="svg-img" src="./imgs/email.svg" alt="Email">
-                </a>
-            </div>
-        </section>
-
-        <section>
-            <h2>Acerca de mí</h2>
-
-            <p>Soy un estudiante de ingeniería informática en la USC, actualmente estoy centrado en backend con el ecosistema Spring, así como en sistemas embebidos con Rust. También me enfoco en la contenedorización de aplicaciones de diversos tipos mediante Docker.</p>
-
-            <p>Mi formación es continua; combino los estudios universitarios con el aprendizaje autodidacta. En la universidad he adquirido conocimientos sólidos en bases de datos relacionales —especialmente PostgreSQL—, así como en sistemas operativos, redes y otras materias esenciales que completan la formación de un ingeniero informático, lo que me ha proporcionado una base teórica y práctica sólida. Además, sigo ampliando en la universidad nuevos conceptos como la inteligencia artificial, computación distribuida, etc. Paralelamente, de forma autodidacta, profundizo en áreas como la ciberseguridad y la administración de redes para fortalecer mis competencias técnicas.</p>
-
-            <p>Soy un apasionado del open source; la mayoría de las herramientas que utilizo a diario en el ciclo de vida del software que desarrollo son FOSS. Trabajo principalmente con Arch Linux en mi entorno de desarrollo y empleo Debian para servidores. Mi editor de código predilecto es Neovim, es el que más uso y en el que más cómodo me siento.</p>
-            
-            <h3>Educación</h3>
+            <h3 data-i18n="education_title">Educación</h3>
             <ul>
-                <li><strong>Bachillerato de Ciencias</strong> - IES Frei Martín Sarmiento e IES Xunqueira I (2021-2023)</li>
-                <li><strong>Grado en Ingeniería Informática</strong> - Universidad de Santiago de Compostela (2023-2027)</li>
+                <li><strong data-i18n="education_highschool"></strong> - <span data-i18n="education_highschool_place"></span></li>
+                <li><strong data-i18n="education_degree"></strong> - <span data-i18n="education_degree_place"></span></li>
             </ul>
             
-            <h3>Certificaciones</h3>
+            <h3 data-i18n="certifications_title">Certificaciones</h3>
             <ul>
                 <li>
-                    <strong>Introduction to Cybersecurity (Cisco)</strong> (09/2025): a lo largo de diferentes proyectos que he creado, tanto solo como con compañeros, me he dado cuenta de lo importante que resulta tener siempre en cuenta la ciberseguridad, independientemente de la fase del proyecto, un software que no mira por la seguridad desde diferentes perspectivas acabará dando más problemas que soluciones. Por esta razón decidí comenzar a aprender ciberseguridad de forma más especializada, comenzando con esta certificación de Cisco.
+                    <strong>LPIC-1</strong> (11/2025): <span data-i18n="cert_lpic1_desc"></span>
 
                     <br>
 
-                    <a href="https://www.credly.com/badges/ce3382d3-ba95-4f6b-9505-33fdec75fb74" target="_blank">
-                        <img src="./imgs/intro-cybersec-cisco.png" alt="Cisco Networking Academy Badge: Introduction to Cybersecurity" width="100" height="100">
+                    <a href="https://www.credly.com/badges/97b91ea6-488f-4d3f-b0ed-45b23bf225e0" target="_blank" rel="noopener noreferrer">
+                        <img src="./imgs/lpic1.jpg" alt="Insignia de certificación LPIC-1" data-i18n-alt="alt_lpic1" width="100" height="100" loading="lazy">
                     </a>
 
                 </li>
                 <br>
                 <li>
-                    <strong>Ciberseguridad avanzada en entornos de las tecnologías de la operación</strong> (09/2025): siempre he estado interesado en la intersección entre el mundo del desarrollo y el mundo industrial, y este curso me permitió aprender cómo hay que proceder a la hora de manejar un entorno industrial actual, con todo lo que conlleva.
-                </li>
-            </ul>
-        </section>
-
-        <section>
-            <h2>Proyectos</h2>
-            
-            <div>
-                <h3>Pickture</h3>
-                <a href="https://github.com/martindios/Pickture" target="_blank">
-                    <img src="./imgs/pickture.png" alt="Captura de pantalla de la extensión Pickture en acción, mostrando la búsqueda de prendas de ropa en línea." width="479" height="288">
-                </a>
-                <p>
-                    Pickture es una extensión para Google Chrome orientada a la búsqueda y descubrimiento de prendas de ropa en línea. La herramienta permite identificar productos similares a los de una imagen seleccionada en cualquier sitio web y ofrece alternativas de compra de marcas del grupo Inditex.
-                </p>
-
-                <p>Para el funcionamiento de este proyecto usamos la API Visual Search Inditex Tech, una herramienta open source que Inditex facilita para poder buscar prendas similares. Para proporcionar un menú persistente entre sesiones usamos IndexedDB. Este proyecto se realizó durante el Hackathon HackUDC 2025, fue el ganador del reto Inditex.</p>
-            
-                <p><strong>Tecnologías:</strong> JavaScript, IndexedDB y Visual Search Inditex Tech API.</p>
-            </div>
-
-            <div>
-                <h3>GreenDots</h3>
-                <a href="https://github.com/martindios/GreenDots" target="_blank">
-                    <img src="./imgs/greendots.jpg" alt="Captura de pantalla de la aplicación GreenDots en funcionamiento, mostrando el mapa interactivo y las reseñas de locales sostenibles." width="480" height="270">
-                </a>
-                <p>
-                    GreenDots es una aplicación móvil para Android que permite la búsqueda de locales sostenibles en un mapa interactivo. Algunas de sus funcionalidades son crear reseñas de los locales basados en diferentes criterios o consultar las opiniones de diferentes usuarios.
-                </p>
-
-                <p>La aplicación está desarrollada completamente en Kotlin, utilizando una API REST construida con Spring Boot para el backend y PostgreSQL para la base de datos. Este proyecto fue desarrollado durante el Impacthon 2025 de la USC, quedando segundo en el apartado de proyectos técnicos.</p>
-
-                <p><strong>Tecnologías:</strong> Kotlin, Java, Spring Boot, PostgreSQL y API REST.</p>
-            </div>
-
-            <div>
-                <h3>Look for the Capy</h3>
-                <a href="https://github.com/martindios/LookForTheCapy" target="_blank">
-                    <img src="./imgs/look-for-the-capy.png" alt="Captura de pantalla del juego Look for the Capy, mostrando el terreno 3D procedimental y la capibara que debe ser encontrada." width="560" height="265">
-                </a>
-                <p>
-                    Look for the Capy es un juego desarrollado en C++ que utiliza OpenGL 3.3 para crear un terreno 3D procedimental usando ruido de Perlin. El objetivo del juego es encontrar una capibara a lo largo del terreno todas las veces que sea posible. Ten en cuenta que si tardas demasiado en encontrarla, perderás el juego.
-                </p>
-                <p><strong>Tecnologías:</strong> C++, OpenGL 3.3 y GLSL.</p>
-            </div>
-        </section>
-    </div>
-
-    <!-- Versión galega -->
-    <div id="galician" class="language-content" style="display: none;">
-        <h1>Martín González Dios</h1>
-        
-        <section>
-            <img src="./imgs/martindios.jpg" alt="Foto de martindios" width="200" height="200">
-            <br>
-            <em>Enxeñeiro informático enfocado en backend, sistemas embebidos e contedorización.</em>
-
-            <div class="contact-section">
-                <a href="https://www.linkedin.com/in/mart%C3%ADn-gonz%C3%A1lez-dios/" target="_blank" aria-label="LinkedIn">
-                    <img class="svg-img" src="./imgs/linkedin.svg" alt="LinkedIn">
-                </a>
-                <a href="https://github.com/martindios" target="_blank" aria-label="GitHub">
-                    <img class="svg-img" src="./imgs/github.svg" alt="GitHub">
-                </a>
-                <a href="mailto:gonzalezdiosmartin@gmail.com" target="_blank" aria-label="Email">
-                    <img class="svg-img" src="./imgs/email.svg" alt="Email">
-                </a>
-            </div>
-        </section>
-
-        <section>
-            <h2>Acerca de min</h2>
-
-            <p>Son un estudante de enxeñaría informática na USC, actualmente estou centrado in backend co ecosistema Spring, así como en sistemas embebidos con Rust. Enfócome tamén na contedorización de aplicacións de diversos tipos mediante Docker.</p>
-
-            <p>A miña formación é continua; combino os estudos universitarios co aprendizaxe autodidacta. Na universidade adquirín coñecementos sólidos en bases de datos relacionais —especialmente PostgreSQL—, así como en sistemas operativos, redes e outras materias esenciais que completan a formación dun enxeñeiro informático, o que me proporcionou unha base teórica e práctica sólida. Ademais, sigo ampliando na universidade novos conceptos como a intelixencia artificial, a computación distribuída, etc. Paralelamente, de xeito autodidacta, profundizo en áreas como a ciberseguridade e a administración de redes para fortalecer as miñas competencias técnicas.</p>
-
-            <p>Son un apasionado do open source; a maioría das ferramentas que utilizo a diario no ciclo de vida do software que desenvolvo son FOSS. Traballo principalmente con Arch Linux no meu contorno de desenvolvemento e emprego Debian para servidores. O meu editor de código predilecto é Neovim: é o que máis uso e no que me sinto máis cómodo.</p>
-            
-            <h3>Educación</h3>
-            <ul>
-                <li><strong>Bacharelato de Ciencias</strong> - IES Frei Martín Sarmiento e IES Xunqueira I (2021-2023)</li>
-                <li><strong>Grao en Enxeñería Informática</strong> - Universidade de Santiago de Compostela (2023-2027)</li>
-            </ul>
-            
-            <h3>Certificaciones</h3>
-            <ul>
-                <li>
-                    <strong>Introduction to Cybersecurity (Cisco)</strong> (09/2025): ó longo de diferentes proxectos que fixen, tanto só como con compañeiros, decateime do importante que resulta ter sempre en conta a ciberseguridade, independentemente da fase do proxecto, un software que non mira pola seguridade dende diferentes perspectivas rematará dando máis problemas que solucións. Por esta razón decidín comezar a aprender ciberseguridade de forma máis especializada, comezando con esta certificación de Cisco.
+                    <strong>Cisco Certified Support Technician Cybersecurity (CCST Cybersecurity)</strong> (10/2025): <span data-i18n="cert_ccst_desc"></span>
 
                     <br>
 
-                    <a href="https://www.credly.com/badges/ce3382d3-ba95-4f6b-9505-33fdec75fb74" target="_blank">
-                        <img src="./imgs/intro-cybersec-cisco.png" alt="Cisco Networking Academy Badge: Introduction to Cybersecurity" width="100" height="100">
+                    <a href="https://www.credly.com/badges/ce3382d3-ba95-4f6b-9505-33fdec75fb74" target="_blank" rel="noopener noreferrer">
+                        <img src="./imgs/ccst.png" alt="Insignia de certificación CCST Cybersecurity" data-i18n-alt="alt_ccst" width="100" height="100" class="ccst-badge" loading="lazy">
                     </a>
 
                 </li>
                 <br>
                 <li>
-                    <strong>Ciberseguridade avanzada en contornos das tecnoloxías da operación</strong> (09/2025): sempre estiven interesado na intersección entre o mundo do desenvolvemento de software e o mundo industrial, e este curso permitiume aprender como hai que proceder á hora de manexar un contorno industrial actual, con todo o que implica.
+                    <strong data-i18n="cert_ot_title"></strong> (09/2025): <span data-i18n="cert_ot_desc"></span>
                 </li>
             </ul>
         </section>
 
         <section>
-            <h2>Proxectos</h2>
+            <h2 data-i18n="projects_title">Proyectos/Logros</h2>
             
-            <div>
-                <h3>Pickture</h3>
-                <a href="https://github.com/martindios/Pickture" target="_blank">
-                    <img src="./imgs/pickture.png" alt="Captura de pantalla da extensión Pickture en acción, mostrando a busca de prendas de roupa en liña." width="479" height="288">
-                </a>
-                <p>
-                    Pickture é unha extensión para Google Chrome orientada á busca e descubremento de prendas de roupa online. A ferramenta permite identificar produtos similares aos dunha imaxe seleccionada en calquera sitio web e ofrece alternativas de compra de marcas do grupo Inditex.
-                </p>
+            <article>
+                <h3 data-i18n="hackudc_title">Ganadores HackUDC 2025</h3>
+                <p data-i18n="hackudc_desc"></p>
 
-                <p>Para o funcionamento deste proxecto usamos a API Visual Search Inditex Tech, unha ferramenta open source que Inditex facilita para poder buscar prendas similares. Para proporcionar un menú persistente entre sesións usamos IndexedDB. Este proxecto realizouse durante o Hackathon HackUDC 2025, foi o gañador do reto Inditex.</p>
+                <figure>
+                    <a href="https://github.com/martindios/Pickture" target="_blank" rel="noopener noreferrer">
+                        <img
+                        src="./imgs/pickture.png"
+                        alt="Captura de pantalla de la extensión Pickture mostrando su interfaz de usuario"
+                        data-i18n-alt="alt_pickture"
+                        width="479" height="288"
+                        loading="lazy">
+                    </a>
+                    <figcaption>
+                        <span data-i18n="pickture_caption"></span> <strong>Pickture</strong>. 
+                        <a href="https://github.com/martindios/Pickture" target="_blank" rel="noopener noreferrer" data-i18n="github_link"></a>.
+                    </figcaption>
+                </figure>
             
-                <p><strong>Tecnoloxías:</strong> JavaScript, IndexedDB e Visual Search Inditex Tech API.</p>
-            </div>
+            </article>
 
-            <div>
-                <h3>GreenDots</h3>
-                <a href="https://github.com/martindios/GreenDots" target="_blank">
-                    <img src="./imgs/greendots.jpg" alt="Captura de pantalla da aplicación GreenDots en funcionamento, mostrando o mapa interactivo e as reseñas de locais sostíbeis." width="480" height="270">
-                </a>
-                <p>
-                    GreenDots é unha aplicación móbil para Android que permite a busca de locais sostíbeis nun mapa interactivo, pódense crear reseñas dos locais baseados en diferentes criterios.
-                </p>
+            <article>
+                <h3 data-i18n="eije_title">Finalistas EIJE 2025</h3>
 
-                <p>A aplicación está desenvolvida completamente en Kotlin, utilizando unha API REST construída con Spring Boot para o backend e PostgreSQL para a base de datos. Este proxecto foi desenvolvido durante o Impacthon 2025 da USC, quedando segundo no apartado de proxectos técnicos.</p>
+                <p data-i18n="eije_desc"></p>
 
-                <p><strong>Tecnoloxías:</strong> Kotlin, Java, Spring Boot, PostgreSQL e API REST.</p>
-            </div>
+                <figure>
+                    <a href="https://github.com/martindios/GreenDots" target="_blank" rel="noopener noreferrer">
+                    <img
+                        src="./imgs/greendots.jpg"
+                        alt="Capturas de pantalla de la aplicación móvil GreenDots mostrando sus diferentes funcionalidades"
+                        data-i18n-alt="alt_greendots"
+                        width="480" height="270"
+                        loading="lazy">
+                    </a>
+                    <figcaption>
+                        <span data-i18n="greendots_caption"></span> <strong>GreenDots</strong> <span data-i18n="greendots_running"></span>.
+                        <a href="https://github.com/martindios/GreenDots" target="_blank" rel="noopener noreferrer" data-i18n="github_link"></a>.
+                    </figcaption>
+                </figure>
+            </article>
 
-            <div>
-                <h3>Look for the Capy</h3>
-                <a href="https://github.com/martindios/LookForTheCapy" target="_blank">
-                    <img src="./imgs/look-for-the-capy.png" alt="Captura de pantalla do xogo Look for the Capy, mostrando o terreo 3D procedimental e a capibara que debe ser atopada." width="560" height="265">
-                </a>
-                <p>
-                    Look for the Capy é un xogo desenvolvido en C++ que utiliza OpenGL 3.3 para crear un terreo 3D procedimental usando ruído de Perlin. O obxectivo do xogo é atopar unha capibara ao longo do terreo todas as veces que sexa posible. Ten en conta que se tardas demasiado en atopala, perderás o xogo.
-                </p>
-                <p><strong>Tecnoloxías:</strong> C++, OpenGL 3.3 e GLSL.</p>
-            </div>
-        </section>    
-    </div>
+            <article>
+                <h3 data-i18n="capy_title">Look for the Capy</h3>
+
+                <p data-i18n="capy_desc"></p>
+
+                <figure>
+                    <a href="https://github.com/martindios/LookForTheCapy" target="_blank" rel="noopener noreferrer">
+                        <img
+                            src="./imgs/look-for-the-capy.png"
+                            alt="Captura de pantalla del videojuego Look for the Capy"
+                            data-i18n-alt="alt_capy"
+                            width="480" height="270"
+                            loading="lazy">
+                    </a>
+                    <figcaption>
+                        <span data-i18n="capy_caption"></span> <strong>Look for the Capy</strong>.
+                        <a href="https://github.com/martindios/LookForTheCapy" target="_blank" rel="noopener noreferrer" data-i18n="github_link"></a>.
+                    </figcaption>
+                </figure>
+
+                <p><strong data-i18n="technologies"></strong> C++, OpenGL 3.3 y GLSL.</p>
+            </article>
+        </section>
+    </main>
 
     <footer>
         <hr>
         <p><small>Martín González Dios.</small></p>
     </footer>
 
-    <!-- JS for language switching functionality -->
     <script>
-        function switchLanguage(language) {
-            const allLanguages = document.querySelectorAll('.language-content');
-            allLanguages.forEach(content => {
-                content.style.display = 'none';
-            });
+        let translations = {};
+        let currentLang = 'es';
 
-            const selectedLanguage = document.getElementById(language);
-            if (selectedLanguage) {
-                selectedLanguage.style.display = 'block';
+        // Load translations
+        async function loadTranslations() {
+            try {
+                const response = await fetch('./translations.json');
+                translations = await response.json();
+            } catch (error) {
+                console.error('Error loading translations:', error);
             }
+        }
+
+        // Update all elements with data-i18n attribute
+        function updateContent() {
+            document.querySelectorAll('[data-i18n]').forEach(element => {
+                const key = element.getAttribute('data-i18n');
+                if (translations[currentLang] && translations[currentLang][key]) {
+                    element.textContent = translations[currentLang][key];
+                }
+            });
+            
+            document.querySelectorAll('[data-i18n-alt]').forEach(element => {
+                const key = element.getAttribute('data-i18n-alt');
+                if (translations[currentLang] && translations[currentLang][key]) {
+                    element.setAttribute('alt', translations[currentLang][key]);
+                }
+            });
+            
+            updateMetaTags();
+        }
+
+        function updateMetaTags() {
+            if (!translations[currentLang]) return;
+            
+            const ogTitle = document.getElementById('og-title');
+            if (ogTitle && translations[currentLang].og_title) {
+                ogTitle.setAttribute('content', translations[currentLang].og_title);
+            }
+            
+            const ogDescription = document.getElementById('og-description');
+            if (ogDescription && translations[currentLang].og_description) {
+                ogDescription.setAttribute('content', translations[currentLang].og_description);
+            }
+            
+            const metaDescription = document.querySelector('meta[name="description"]');
+            if (metaDescription && translations[currentLang].og_description) {
+                metaDescription.setAttribute('content', translations[currentLang].og_description);
+            }
+        }
+
+        function switchLanguage(language) {
+            currentLang = language;
+            updateContent();
+
+            localStorage.setItem('preferredLanguage', language);
 
             // Update active language link styling
-            const allLanguageLinks = document.querySelectorAll('nav a');
+            const allLanguageLinks = document.querySelectorAll('nav a, nav button');
             allLanguageLinks.forEach(link => {
                 link.classList.remove('active');
-                link.style.fontWeight = 'normal';
-                link.style.textDecoration = 'underline';
             });
 
-            // Style active language link
-            let activeLinkId;
-            switch(language) {
-                case 'english':
-                    activeLinkId = 'lang-en';
-                    break;
-                case 'spanish':
-                    activeLinkId = 'lang-es';
-                    break;
-                case 'galician':
-                    activeLinkId = 'lang-gl';
-                    break;
-            }
-
+            const activeLinkId = `lang-${language}`;
             const activeLink = document.getElementById(activeLinkId);
             if (activeLink) {
                 activeLink.classList.add('active');
-                activeLink.style.fontWeight = 'bold';
-                activeLink.style.textDecoration = 'none';
             }
 
             // Update page lang attribute
-            document.documentElement.lang = language === 'english' ? 'en' : 
-                                          language === 'spanish' ? 'es' : 'gl';
+            document.documentElement.lang = language;
         }
 
         function toggleDarkMode() {
             const body = document.body;
             const button = document.getElementById('dark-mode-toggle');
+            const themeColorMeta = document.getElementById('theme-color-meta');
             
             if (body.classList.contains('dark-mode')) {
                 body.classList.remove('dark-mode');
-                button.textContent = 'Dark Mode';
+                button.textContent = translations[currentLang]?.dark_mode || 'Dark Mode';
+                button.setAttribute('aria-pressed', 'false');
+                themeColorMeta.setAttribute('content', '#ffffff');
+                localStorage.setItem('darkMode', 'false');
             } else {
                 body.classList.add('dark-mode');
-                button.textContent = 'Light Mode';
+                button.textContent = translations[currentLang]?.light_mode || 'Light Mode';
+                button.setAttribute('aria-pressed', 'true');
+                themeColorMeta.setAttribute('content', '#1a1a1a');
+                localStorage.setItem('darkMode', 'true');
             }
         }
 
-        // Initialize page with browser lang or Spanish as default
-        document.addEventListener('DOMContentLoaded', function() {
-            const browserLang = navigator.language || navigator.userLanguage;
-            let defaultLang = 'spanish'; // Default to Spanish
-            
-            if (browserLang.startsWith('en')) {
-                defaultLang = 'english';
-            } else if (browserLang.startsWith('gl')) {
-                defaultLang = 'galician';
-            } else if (browserLang.startsWith('es')) {
-                defaultLang = 'spanish';
+        function loadPreferences() {
+            try {
+                const themeColorMeta = document.getElementById('theme-color-meta');
+                
+                const savedDarkMode = localStorage.getItem('darkMode');
+                if (savedDarkMode === 'true') {
+                    document.body.classList.add('dark-mode');
+                    const button = document.getElementById('dark-mode-toggle');
+                    button.textContent = translations[currentLang]?.light_mode || 'Light Mode';
+                    button.setAttribute('aria-pressed', 'true');
+                    themeColorMeta.setAttribute('content', '#1a1a1a');
+                } else {
+                    themeColorMeta.setAttribute('content', '#ffffff');
+                }
+
+                const savedLanguage = localStorage.getItem('preferredLanguage');
+                if (savedLanguage && ['es', 'gl', 'en'].includes(savedLanguage)) {
+                    return savedLanguage;
+                }
+
+                // If no saved preference, use browser language
+                const browserLang = navigator.language || navigator.userLanguage;
+                if (browserLang.startsWith('en')) {
+                    return 'en';
+                } else if (browserLang.startsWith('gl')) {
+                    return 'gl';
+                }
+                return 'es';
+            } catch (error) {
+                console.warn('localStorage not available:', error);
+                
+                try {
+                    const browserLang = navigator.language || navigator.userLanguage;
+                    if (browserLang.startsWith('en')) return 'en';
+                    if (browserLang.startsWith('gl')) return 'gl';
+                } catch (e) {
+                    console.warn('Could not detect browser language');
+                }
+                
+                return 'es';
             }
+        }
+
+        document.body.classList.add('loading');
+
+        // Initialize page
+        document.addEventListener('DOMContentLoaded', async function() {
+            await loadTranslations();
             
+            // Load preferences and set language
+            const defaultLang = loadPreferences();
             switchLanguage(defaultLang);
+
+            document.body.classList.remove('loading');
         });
     </script>
 </body>
